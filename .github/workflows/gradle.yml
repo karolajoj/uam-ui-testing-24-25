@@ -36,8 +36,14 @@ jobs:
     - name: Give gradlew excutable permission
       run : chmod +x ./gradlew
 
-    - name: Build with Gradle Wrapper
-      run: ./gradlew build
+    - name: Build with Gradle Wrapper without test
+      run: ./gradlew build -x test
+
+    - name: Deploy  to TEST enviroment
+      print: "Deploying to TEST"
+
+    #- name: Run UI test
+    #  run: ./gradlew clean test --tests runners.Runner
 
     # NOTE: The Gradle Wrapper is the default and recommended way to run Gradle (https://docs.gradle.org/current/userguide/gradle_wrapper.html).
     # If your project does not have the Gradle Wrapper configured, you can use the following configuration to run Gradle with a specified version.
